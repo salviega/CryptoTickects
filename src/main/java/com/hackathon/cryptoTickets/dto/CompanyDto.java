@@ -12,6 +12,8 @@ import javax.validation.constraints.NotBlank;
 public class CompanyDto {
 
     private String id;
+    @NotBlank(message = "The address is required")
+    private String adress;
     @NotBlank(message = "The name is required")
     private String name;
     @NotBlank(message = "The company hash is required")

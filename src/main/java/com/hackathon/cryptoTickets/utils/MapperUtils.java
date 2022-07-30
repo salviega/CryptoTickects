@@ -13,6 +13,7 @@ public class MapperUtils {
         return company -> {
             CompanyDto companyDto = new CompanyDto();
             companyDto.setId(company.getId());
+            companyDto.setAdress(company.getAdress());
             companyDto.setName(company.getName());
             companyDto.setEventHash(company.getEventHash());
             return companyDto;
@@ -20,11 +21,12 @@ public class MapperUtils {
     }
 
     public Function<CompanyDto, Company> FromDtoToCompanyEntity(String id) {
-        return CompanyDto -> {
+        return companyDto -> {
             Company company = new Company();
             company.setId(id);
-            company.setName(CompanyDto.getName());
-            company.setEventHash(CompanyDto.getEventHash());
+            company.setAdress(companyDto.getAdress());
+            company.setName(companyDto.getName());
+            company.setEventHash(companyDto.getEventHash());
             return company;
         };
     }
