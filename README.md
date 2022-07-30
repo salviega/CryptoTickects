@@ -6,7 +6,7 @@ Crypto Tickets: Hackathon - Fork the System II
 
 ## Despliegue Heroku
 
-Heroku url: xxx
+Heroku url: https://cryptotickets.herokuapp.com/
 
 ## Empezar 🏄
 
