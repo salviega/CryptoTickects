@@ -22,7 +22,7 @@ public class CreateCompanyUseCase implements ISaveCompany {
     @Override
     public Mono<CompanyDto> apply(CompanyDto companyDto) {
         return companyRepository
-                .save(this.mapperUtils.FromDtoToCompanyEntity(null).apply(companyDto))
+                .save(this.mapperUtils.FromDtoToCompanyEntity(companyDto.getId()).apply(companyDto))
                 .map(this.mapperUtils.FromCompanyEntityToDto());
     }
 }

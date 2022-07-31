@@ -7,6 +7,6 @@ import javax.validation.Valid;
 
 @FunctionalInterface
 public interface IUpdateCompany {
-    public Mono<CompanyDto> apply(@Valid String id, CompanyDto cyclistDto);
+    public Mono<CompanyDto> apply(@Valid String address, CompanyDto companyDto);
 
 }

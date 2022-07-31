@@ -31,10 +31,10 @@ public class QueryRouter {
 
     @Bean
     public RouterFunction<ServerResponse> getCompany(GetCompanyUseCase getCompanyUseCase) {
-        return route(GET("/companies/{id}").and(accept(MediaType.APPLICATION_JSON)),
+        return route(GET("/companies/{address}").and(accept(MediaType.APPLICATION_JSON)),
                 request -> ServerResponse.ok()
                         .contentType(MediaType.APPLICATION_JSON)
-                        .body(BodyInserters.fromPublisher(getCompanyUseCase.apply(request.pathVariable("id")),
+                        .body(BodyInserters.fromPublisher(getCompanyUseCase.apply(request.pathVariable("address")),
                                 CompanyDto.class))
         );
     }
@@ -52,9 +52,9 @@ public class QueryRouter {
 
     @Bean
     public RouterFunction<ServerResponse> updateCompany(UpdateCompanyUseCase updateCompanyUseCase) {
-        return route(PUT("/companies/{id}").and(accept(MediaType.APPLICATION_JSON)),
+        return route(PUT("/companies/{address}").and(accept(MediaType.APPLICATION_JSON)),
                 request -> request.bodyToMono(CompanyDto.class)
-                        .flatMap(updateCyclistDto -> updateCompanyUseCase.apply(request.pathVariable("id"), updateCyclistDto)
+                        .flatMap(updateCyclistDto -> updateCompanyUseCase.apply(request.pathVariable("address"), updateCyclistDto)
                                 .flatMap(result -> ServerResponse.ok()
                                         .contentType(MediaType.APPLICATION_JSON)
                                         .bodyValue(result)))
@@ -63,10 +63,10 @@ public class QueryRouter {
 
     @Bean
     public RouterFunction<ServerResponse> deleteCompany(DeleteCompanyUseCase deleteCompanyUseCase) {
-        return route(DELETE("/companies/{id}").and(accept(MediaType.APPLICATION_JSON)),
+        return route(DELETE("/companies/{address}").and(accept(MediaType.APPLICATION_JSON)),
                 request -> ServerResponse.accepted()
                         .contentType(MediaType.APPLICATION_JSON)
-                        .body(BodyInserters.fromPublisher(deleteCompanyUseCase.apply(request.pathVariable("id")), Void.class))
+                        .body(BodyInserters.fromPublisher(deleteCompanyUseCase.apply(request.pathVariable("address")), Void.class))
         );
     }
 }

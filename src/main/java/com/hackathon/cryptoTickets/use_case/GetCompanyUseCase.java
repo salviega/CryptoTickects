@@ -22,9 +22,9 @@ public class GetCompanyUseCase implements Function<String, Mono<CompanyDto>> {
         this.mapperUtils = mapperUtils;
     }
     @Override
-    public Mono<CompanyDto> apply(String id) {
-        Objects.requireNonNull(id, "The id is required");
-        return companyRepository.findById(id)
+    public Mono<CompanyDto> apply(String address) {
+        Objects.requireNonNull(address, "The address is required");
+        return companyRepository.findByAddress(address)
                 .map(mapperUtils.FromCompanyEntityToDto());
     }
 }

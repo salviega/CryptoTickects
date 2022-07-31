@@ -19,8 +19,8 @@ public class DeleteCompanyUseCase implements Function<String, Mono<Void>> {
     }
 
     @Override
-    public Mono<Void> apply(String id) {
-        Objects.requireNonNull(id, "Id is required");
-        return companyRepository.deleteById(id);
+    public Mono<Void> apply(String address) {
+        Objects.requireNonNull(address, "Address is required");
+        return companyRepository.deleteByAddress(address);
     }
 }

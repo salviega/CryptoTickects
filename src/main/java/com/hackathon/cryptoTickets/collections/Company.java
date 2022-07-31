@@ -14,7 +14,7 @@ public class Company {
 
     @Id
     private String id;
-    private String adress;
+    private String address;
     private String name;
     private String eventHash;
 

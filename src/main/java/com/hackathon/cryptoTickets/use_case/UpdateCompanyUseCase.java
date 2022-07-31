@@ -23,14 +23,14 @@ public class UpdateCompanyUseCase implements IUpdateCompany {
     }
 
     @Override
-    public Mono<CompanyDto> apply(String id, CompanyDto companyDto) {
-        Objects.requireNonNull(id, "Id is required");
-        return getCompanyUseCase.apply(id)
+    public Mono<CompanyDto> apply(String address, CompanyDto companyDto) {
+        Objects.requireNonNull(address, "Address is required");
+        return getCompanyUseCase.apply(address)
                 .flatMap(foundCompanyDto -> {
-                    foundCompanyDto.setId(companyDto.getId());
+                    foundCompanyDto.setName((companyDto.getName()));
                     foundCompanyDto.setEventHash(companyDto.getEventHash());
                     return companyRepository
-                            .save(mapperUtils.FromDtoToCompanyEntity(id).apply(companyDto))
+                            .save(mapperUtils.FromDtoToCompanyEntity(foundCompanyDto.getId()).apply(foundCompanyDto))
                             .map(mapperUtils.FromCompanyEntityToDto());
                 });
     }

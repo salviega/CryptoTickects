@@ -13,7 +13,7 @@ public class MapperUtils {
         return company -> {
             CompanyDto companyDto = new CompanyDto();
             companyDto.setId(company.getId());
-            companyDto.setAdress(company.getAdress());
+            companyDto.setAddress(company.getAddress());
             companyDto.setName(company.getName());
             companyDto.setEventHash(company.getEventHash());
             return companyDto;
@@ -24,7 +24,7 @@ public class MapperUtils {
         return companyDto -> {
             Company company = new Company();
             company.setId(id);
-            company.setAdress(companyDto.getAdress());
+            company.setAddress(companyDto.getAddress());
             company.setName(companyDto.getName());
             company.setEventHash(companyDto.getEventHash());
             return company;
