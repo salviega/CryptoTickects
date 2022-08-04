@@ -1,4 +1,4 @@
-# Crypto Tickets
+# CryptoTickets - backend
 
 ## Descripción
 
@@ -6,7 +6,7 @@ Crypto Tickets: Hackathon - Fork the System II
 
 ## Despliegue Heroku
 
-Heroku url: https://cryptotickets.herokuapp.com/
+Heroku url: https://cryptotickects-backend.herokuapp.com/
 
 ## Empezar 🏄
 
