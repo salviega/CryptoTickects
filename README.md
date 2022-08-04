@@ -2,7 +2,7 @@
 
 ## Descripción
 
-Crypto Tickets: Hackathon - Fork the System II
+CryptoTickets: Hackathon - Fork the System II
 
 ## Despliegue Heroku
 
